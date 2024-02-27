@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 type ScriptStatus = "idle" | "loading" | "ready" | "error";
 
-const JS_IMPORT_BASE_PATH = "/public/assets/";
+const JS_IMPORT_BASE_PATH = "assets/";
 
 export const useScript = (basePath = JS_IMPORT_BASE_PATH) => {
   // 스크립트 파일을 불러오는 상태
