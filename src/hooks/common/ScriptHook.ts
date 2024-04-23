@@ -52,10 +52,8 @@ export const useScript = (basePath = JS_IMPORT_BASE_PATH) => {
 
   // 리액트 컴포넌트에서 호출하여 인자로 들어온 javascript 파일을 불러오는 함수
   const importScript = useCallback(
-    (jsSrc: string | string[]) => {
-      const scripts = Array.isArray(jsSrc)
-        ? jsSrc.map((js) => `${basePath}${js}.js`)
-        : [`${basePath}${jsSrc}.js`];
+    (...jsSrc: string[]) => {
+      const scripts = jsSrc.map((js) => `${basePath}${js}.js`);
       scripts.forEach(loadScript);
     },
     [loadScript, basePath]

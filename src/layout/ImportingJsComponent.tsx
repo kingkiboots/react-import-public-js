@@ -10,7 +10,7 @@ const ImportingJsComponent = () => {
   };
 
   useLayoutEffect(() => {
-    importScript(["js/theme"]);
+    importScript("js/theme");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
