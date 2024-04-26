@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useLayoutEffect, useState } from "react";
 
 type ScriptStatus = "idle" | "loading" | "ready" | "error";
 
@@ -63,7 +63,7 @@ export const useScript = (basePath = JS_IMPORT_BASE_PATH) => {
   // 'script[data-status="loading"], script[data-status="ready"], script[data-status="error"]'로 되어있는 태그는
   // 여기서 만들어진 것이기 때문에 지워준다.
   // *** 다만 프로젝트마다 불러들인 script 태그를 지워야할 시점과 이 hook이 unmount 될 때에 실행할 액션이 다를 수도 있므로 참고만 하시기 바랍니다.
-  useEffect(() => {
+  useLayoutEffect(() => {
     return () => {
       const scriptElements = document.querySelectorAll(
         'script[data-status="loading"], script[data-status="ready"], script[data-status="error"]'
